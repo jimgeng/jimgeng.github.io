@@ -86,10 +86,6 @@
   cursor: pointer;
 }
 
-.theme-toggle:hover {
-  background: var(--surface);
-}
-
 .theme-toggle:focus-visible {
   outline: 2px solid var(--text);
   outline-offset: 3px;
