@@ -1,0 +1,9 @@
+.project-card {
+  border: 1px dashed var(--border);
+  padding: var(--grid-cell-size);
+
+}
+
+.project-card h3 {
+  margin-bottom: var(--xs-gap);
+}

@@ -1,0 +1,60 @@
+---
+import IconSVG from "./IconSVG.astro";
+import "../styles/navbar.css";
+import IconColorSVG from "./IconColorSVG.astro";
+
+const links = [
+  // { href: "#projects", text: "Projects" },
+  // { href: "#experience", text: "Experience" },
+  { href: "/resume.pdf", text: "Resume" },
+];
+---
+
+<nav class="navbar">
+  <div class="logo"><a href="/">
+    <div class="icon-white">
+      <IconSVG />
+    </div>
+    <div class="icon-color">
+      <IconColorSVG />
+    </div>
+  </a>
+  </div>
+  
+  
+  <div class="nav-links">
+    {links.map((link) => (
+      <a href={link.href}>{link.text}</a>
+    ))}
+  </div>
+  <span class="spacer" />
+  <details class="mobile-menu">
+    <summary aria-label="Toggle navigation menu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </summary>
+    <div class="mobile-menu-links">
+      {links.map((link) => (
+        <a href={link.href}>{link.text}</a>
+      ))}
+    </div>
+  </details>
+</nav>
+
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>(".mobile-menu");
+
+  if (menu) {
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.open = false;
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (menu.open && event.target instanceof Node && !menu.contains(event.target)) {
+        menu.open = false;
+      }
+    });
+  }
+</script>

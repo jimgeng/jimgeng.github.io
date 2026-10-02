@@ -1,0 +1,10 @@
+---
+import "../styles/projectcard.css";
+const { title, description, href } = Astro.props;
+---
+
+<article class="project-card">
+  <h3>{title}</h3>
+  <p class="muted-text">{description}</p>
+  <!-- <a href={href}>View project →</a> -->
+</article>

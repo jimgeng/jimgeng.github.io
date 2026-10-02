@@ -1,0 +1,26 @@
+---
+import "@fontsource-variable/manrope";
+import "../styles/global.css";
+import "../styles/layout.css";
+import Navbar from "../components/Navbar.astro";
+
+const { title = "Jim Geng" } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>{title}</title>
+  </head>
+
+  <body>
+    <Navbar />
+    <div class="main-grid-container">
+      <span class="nav-aligner"/>
+      <main>
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

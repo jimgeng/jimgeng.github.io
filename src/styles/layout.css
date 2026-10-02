@@ -1,0 +1,21 @@
+
+.main-grid-container {
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: var(--grid-cell-size) minmax(0, 1fr);
+}
+
+.nav-aligner {
+  width: var(--grid-cell-size);
+  height: 100%;
+  border-right: 1px dashed var(--border);
+  /* background: red; */
+}
+
+.nav-aligner::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: calc(var(--grid-cell-size) + 100%);
+  border-left: 1px dashed var(--border);
+}

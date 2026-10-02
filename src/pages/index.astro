@@ -1,17 +1,39 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Jim Geng">
+  <section class="hero">
+    <h1>Jim Geng</h1>
+    <div class="desc hero-desc">
+      <p>CS + Stats <span class="muted-text">|</span> 5th year @ UBC</p>
+      <p>I do software and data engineering.<br /><span class="muted-text">Website in development.</span></p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experiences</h2>
+    <div class="xp-list">
+      <p>Data Engineering @ Teck Resources Inc.</p>
+      <p>Full Stack @ Checker Software</p>
+      <p class="muted-text">Currently seeking full-time opportunities for Summer 2025.</p>
+    </div>
+
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project-grid">
+      {projects.map((project) => (
+        <ProjectCard
+          title={project.title}
+          description={project.description}
+          href={project.href}
+        />
+      ))}
+    </div>
+  </section>
+</Layout>
