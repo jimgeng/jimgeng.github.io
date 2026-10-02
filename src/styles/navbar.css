@@ -1,13 +1,13 @@
 .navbar {
   position: sticky;
-  top: var(--lg-gap);
+  top: 0;
   z-index: 100;
   display: flex;
   align-items: stretch;
   background: var(--bg);
   margin-left: var(--lg-gap);
   margin-right: var(--lg-gap);
-  margin-top: var(--lg-gap);
+  padding-top: var(--lg-gap);
 }
 
 .logo {
@@ -73,6 +73,38 @@
   display: none;
 }
 
+.theme-toggle {
+  display: flex;
+  flex: 0 0 var(--grid-cell-size);
+  width: var(--grid-cell-size);
+  height: var(--grid-cell-size);
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background: var(--surface);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+
+.theme-toggle[hidden],
+.theme-moon,
+:root[data-theme="light"] .theme-sun {
+  display: none;
+}
+
+:root[data-theme="light"] .theme-moon {
+  display: block;
+}
+
 .spacer {
   display: block;
   width: 100%;
@@ -128,14 +160,14 @@
   .mobile-menu-links {
     position: absolute;
     top: calc(100% + 0.5rem);
-    right: 1rem;
+    right: 0;
     z-index: 10;
     display: flex;
     width: min(12rem, calc(100vw - 2rem));
     flex-direction: column;
     padding: 0.5rem;
     border: 1px solid var(--border);
-    background: var(--surface);
+    background: var(--bg);
     text-transform: uppercase;
     font-weight: bold;
   }

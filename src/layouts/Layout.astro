@@ -10,6 +10,45 @@ const { title = "Jim Geng" } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script is:inline>
+      (() => {
+        const systemTheme = window.matchMedia?.("(prefers-color-scheme: light)");
+        let preference = null;
+        try {
+          const saved = localStorage.getItem("theme");
+          if (saved === "light" || saved === "dark") preference = saved;
+        } catch {
+          // Theme switching still works when storage is unavailable.
+        }
+
+        function applyTheme() {
+          const theme = preference ?? (systemTheme?.matches ? "light" : "dark");
+          document.documentElement.dataset.theme = theme;
+          const button = document.querySelector(".theme-toggle");
+          if (button) {
+            const label = `Switch to ${theme === "dark" ? "light" : "dark"} mode`;
+            button.setAttribute("aria-label", label);
+            button.setAttribute("title", label);
+            button.hidden = false;
+          }
+        }
+
+        // Set the palette before the page paints to avoid a theme flash.
+        applyTheme();
+        document.addEventListener("DOMContentLoaded", applyTheme);
+        systemTheme?.addEventListener("change", applyTheme);
+        document.addEventListener("click", (event) => {
+          if (!(event.target instanceof Element) || !event.target.closest(".theme-toggle")) return;
+          preference = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+          try {
+            localStorage.setItem("theme", preference);
+          } catch {
+            // Keep the choice for this page even if it cannot be saved.
+          }
+          applyTheme();
+        });
+      })();
+    </script>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <title>{title}</title>
   </head>
