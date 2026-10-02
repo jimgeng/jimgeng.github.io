@@ -1,9 +1,13 @@
 .navbar {
+  position: sticky;
+  top: var(--lg-gap);
+  z-index: 100;
   display: flex;
   align-items: stretch;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  margin-top: 1rem;
+  background: var(--bg);
+  margin-left: var(--lg-gap);
+  margin-right: var(--lg-gap);
+  margin-top: var(--lg-gap);
 }
 
 .logo {
@@ -75,10 +79,6 @@
 }
 
 @media (max-width: 480px) {
-  .navbar {
-    position: relative;
-  }
-
   .nav-links {
     display: none;
   }

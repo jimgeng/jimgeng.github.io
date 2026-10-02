@@ -1,6 +1,6 @@
 
 .main-grid-container {
-  padding: 0 1rem;
+  padding: 0 var(--lg-gap);
   display: grid;
   grid-template-columns: var(--grid-cell-size) minmax(0, 1fr);
 }
@@ -16,6 +16,6 @@
   content: "";
   display: block;
   width: 100%;
-  height: calc(var(--grid-cell-size) + 100%);
+  height: 20%;
   border-left: 1px dashed var(--border);
 }

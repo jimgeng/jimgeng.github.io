@@ -1,7 +1,6 @@
 .project-card {
-  border: 1px dashed var(--border);
-  padding: var(--grid-cell-size);
-
+  border-left: 1px dashed var(--border);
+  padding-left: var(--xs-gap);
 }
 
 .project-card h3 {
