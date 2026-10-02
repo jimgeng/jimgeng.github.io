@@ -105,7 +105,7 @@ p {
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--grid-cell-size);
+  gap: var(--lg-gap);
   /* background: var(--surface); */
 }
 
@@ -122,7 +122,6 @@ p {
 
   .project-grid {
     grid-template-columns: 1fr;
-    gap: var(--xs-gap);
   }
 }
 
