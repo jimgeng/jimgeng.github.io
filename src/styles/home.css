@@ -1,0 +1,31 @@
+.home-hero__title {
+  letter-spacing: -0.056rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  height: var(--hero-title-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: var(--xs-gap);
+  border-bottom: 1px solid var(--border);
+  font-weight: 300;
+}
+
+.home-hero__description {
+  padding: var(--xs-gap);
+  display: flex;
+  flex-direction: column;
+  gap: var(--lg-gap);
+  border-bottom: 1px solid var(--border);
+  padding-top: calc(var(--lg-gap) * 2);
+  padding-bottom: calc(var(--lg-gap) * 2);
+}
+
+.home-internship-notice {
+  margin-bottom: var(--xs-gap);
+}
+
+@media (max-width: 480px) {
+  .home-hero__title {
+    margin-top: 6rem;
+  }
+}

@@ -1,8 +1,0 @@
-.project-card {
-  border-left: 1px dashed var(--border);
-  padding-left: var(--xs-gap);
-}
-
-.project-card h3 {
-  margin-bottom: var(--xs-gap);
-}

@@ -1,0 +1,8 @@
+.project-card {
+  border-left: 1px solid var(--border);
+  padding-left: var(--xs-gap);
+}
+
+.project-card__title {
+  margin-bottom: var(--xs-gap);
+}

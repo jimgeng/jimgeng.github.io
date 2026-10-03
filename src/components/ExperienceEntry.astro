@@ -1,0 +1,12 @@
+---
+import type { Experience } from "../data/experiences";
+import "../styles/experience-entry.css";
+
+interface Props extends Experience {}
+
+const { role, company } = Astro.props;
+---
+
+<article class="experience-entry">
+  <p class="experience-entry__title">{role} <span class="at-symbol">@</span> {company}</p>
+</article>

@@ -1,0 +1,21 @@
+---
+import "../styles/portfolio-section.css";
+
+interface Props {
+  id: string;
+  title: string;
+  layout?: "stack" | "grid";
+}
+
+const { id, title, layout = "stack" } = Astro.props;
+---
+
+<section id={id} class="portfolio-section">
+  <h2 class="portfolio-section__title">{title}</h2>
+  <div class:list={[
+    "portfolio-section__content",
+    `portfolio-section__content--${layout}`,
+  ]}>
+    <slot />
+  </div>
+</section>

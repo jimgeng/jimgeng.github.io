@@ -1,39 +1,33 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ExperienceEntry from "../components/ExperienceEntry.astro";
+import PortfolioSection from "../components/PortfolioSection.astro";
 import ProjectCard from "../components/ProjectCard.astro";
+import { experiences } from "../data/experiences";
 import { projects } from "../data/projects";
+import "../styles/home.css";
 ---
 
 <Layout title="Jim Geng">
-  <section class="hero">
-    <h1>Jim Geng</h1>
-    <div class="desc hero-desc">
+  <section class="home-hero">
+    <h1 class="home-hero__title">Jim Geng</h1>
+    <div class="home-hero__description">
       <p>CS + Stats <span class="muted-text">|</span> 5th year <span class="at-symbol">@</span> UBC</p>
       <p>I do software and data engineering.<br /><span class="muted-text">Website in development.</span></p>
     </div>
   </section>
 
-  <section id="experience">
-    <h2>Experiences</h2>
-    <div class="xp-list">
-      <p>Data Engineering <span class="at-symbol">@</span> Teck Resources Inc.</p>
-      <p>Full Stack <span class="at-symbol">@</span> Checker Software</p>
-      <p class="muted-text">Currently seeking internship opportunities for Summer 2025.</p>
-    </div>
+  <PortfolioSection id="experience" title="Experiences" layout="stack">
+    {experiences.map((experience) => <ExperienceEntry {...experience} />)}
+    <p class="muted-text home-internship-notice">Currently seeking internship opportunities for Summer 2025.</p>
+  </PortfolioSection>
 
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-
-    <div class="project-grid">
-      {projects.map((project) => (
-        <ProjectCard
-          title={project.title}
-          description={project.description}
-          href={project.href}
-        />
-      ))}
-    </div>
-  </section>
+  <PortfolioSection id="projects" title="Projects" layout="grid">
+    {projects.map((project) => (
+      <ProjectCard
+        title={project.title}
+        description={project.description}
+      />
+    ))}
+  </PortfolioSection>
 </Layout>

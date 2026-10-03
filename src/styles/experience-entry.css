@@ -1,0 +1,7 @@
+.experience-entry {
+  margin-bottom: var(--xs-gap);
+}
+
+.experience-entry__title {
+  font-weight: 400;
+}

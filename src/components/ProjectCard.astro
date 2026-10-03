@@ -1,10 +1,13 @@
 ---
-import "../styles/projectcard.css";
-const { title, description, href } = Astro.props;
+import type { Project } from "../data/projects";
+import "../styles/project-card.css";
+
+interface Props extends Pick<Project, "title" | "description"> {}
+
+const { title, description } = Astro.props;
 ---
 
 <article class="project-card">
-  <h3>{title}</h3>
-  <p class="muted-text">{description}</p>
-  <!-- <a href={href}>View project →</a> -->
+  <h3 class="project-card__title">{title}</h3>
+  <p class="muted-text project-card__description">{description}</p>
 </article>
