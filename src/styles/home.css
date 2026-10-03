@@ -23,9 +23,3 @@
 .home-internship-notice {
   margin-bottom: var(--xs-gap);
 }
-
-@media (max-width: 480px) {
-  .home-hero__title {
-    margin-top: 6rem;
-  }
-}
